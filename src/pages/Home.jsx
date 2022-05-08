@@ -1,7 +1,7 @@
 import { Container, SimpleGrid, Heading } from '@chakra-ui/react'
 
 import Search from "../components/Search";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/Movies/MovieCard";
 import Footer from '../components/Footer';
 
 const Home = () => {

@@ -13,7 +13,6 @@ const About = () => {
           </Text>
         </Container>
       </Box>
-      
     </>
   )
 }

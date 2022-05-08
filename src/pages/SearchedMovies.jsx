@@ -4,8 +4,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 
 import Search from "../components/Search";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/Movies/MovieCard";
 import Footer from '../components/Footer';
+import LoadingMovieCards from '../components/Movies/LoadingMovieCards';
 
 // movies will get shown by router's params
 const SearchedMovies = () => {
@@ -74,17 +75,19 @@ const SearchedMovies = () => {
 	// 		"Poster": "https://m.media-amazon.com/images/M/MV5BOTM3MTRkZjQtYjBkMy00YWE1LTkxOTQtNDQyNGY0YjYzNzAzXkEyXkFqcGdeQXVyOTgwMzk1MTA@._V1_SX300.jpg"
 	// 	},
   // ]
-  let params = useParams()
+  const params = useParams()
+  const [currentData, setData] = useState(null)
+
 
   useEffect(() => {
     performOperations()
 		console.log(window.location.pathname);
   }, [params.searchTerm])
 
-  const [currentData, setData] = useState([])
   
 
   const performOperations = () => {
+		setData(null)
     axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${params.searchTerm}`)
     .then(res => {
       setData(res.data.Search)
@@ -101,7 +104,7 @@ const SearchedMovies = () => {
           Search results for '{params.searchTerm}'
         </Heading>
         <SimpleGrid minChildWidth='150px' spacing='40px'>
-            {currentData.map((movie, index) => {
+            { currentData ? currentData.map((movie, index) => {
                 return (
                   <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
                     <MovieCard
@@ -112,7 +115,9 @@ const SearchedMovies = () => {
                   </Link>
                 )
               })
-            }
+							: (
+							<LoadingMovieCards />
+						)}
         </SimpleGrid>
       </Container>
     </>
