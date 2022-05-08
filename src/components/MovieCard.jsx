@@ -1,30 +1,18 @@
 import { Box, VStack, Image, Text, Heading, Flex } from '@chakra-ui/react'
 
-const MovieCard = () => {
-  const testObject = {
-    imageSrc: 'https://www.themoviedb.org/t/p/w220_and_h330_face/izIMqapegdEZj0YVDyFATPR8adh.jpg',
-    rating: 81,
-    title: 'Vikings: Valhalla',
-    releaseDate: "Feb 25, 2022"
-  }
-
+const MovieCard = ({imageSrc, title, releaseDate}) => {
   return (
     <>
-      <Box maxWidth={40}>
+      <Box maxWidth={40} height="auto" overflow="hidden" borderRadius={10}>
         <VStack>
-          <Image borderRadius={10} src={testObject.imageSrc}/>
+          <Image transformOrigin="center center" transition="all .2s ease-out" overflow="hidden" _hover={{ transform: 'scale(1.05, 1.05)', cursor: 'pointer' }} height="240px" borderRadius={10} src={imageSrc}/>
           <VStack pl={2} pos="relative" align="flex-start" width="100%">
-            <Flex top="-30px" pos="absolute" align="center" justify="center" width="40px" height="40px" bg="black" borderRadius="50%">
-              <Text fontSize={14} fontWeight="bold" color="white">
-                {testObject.rating}%
-              </Text>
-            </Flex>
-            <Box pt={3}>
+            <Box pt={1} transition="all .2s ease-out" _hover={{ cursor: 'pointer', color: 'rgb(44, 82, 130)' }}>
               <Heading size="sm">
-                {testObject.title}
+                {title}
               </Heading>
               <Text fontSize="sm">
-                {testObject.releaseDate}
+                {releaseDate}
               </Text>
             </Box>
           </VStack>

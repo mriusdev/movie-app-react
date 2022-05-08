@@ -1,18 +1,14 @@
-import axios from 'axios'
 import { useState } from 'react'
 import { Box, Container, VStack, HStack, Heading, Input, Button } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom';
 
-
-
-const Search = () => {
-  
+const Search = ({searched}) => {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const performOperations = async () => {
-    axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}`)
-    .then(res => {
-      console.log(res);
-    })
+  const navigate = useNavigate()
+
+  const performOperations = () => {
+    navigate(`/search/${searchTerm}`)
   }
 
   return (
@@ -24,17 +20,30 @@ const Search = () => {
       >
         <Container
           maxW="5xl"
-          py="85px"
-          
+          py={
+            searched ? '25px': '85px'
+          }
         >
-          <VStack w="100%" color="white" justify="space-between" rowGap="30px">
+          <VStack
+            w="100%"
+            color="white"
+            justify="space-between"
+            rowGap={ searched ? '10px' : '30px'}
+          >
             <Box w="100%" textAlign="left">
-              <Heading>Welcome!</Heading>
-              <Heading size='md'>Millions of movies, TV shows and people to discover. Explore now.</Heading>
+              { searched ? (
+                <Heading size="lg">Search for another movie</Heading>
+              ) : (
+                <>
+                  <Heading size="2xl">Welcome!</Heading>
+                  <Heading size='lg'>Millions of movies, TV shows and people to discover. Explore now.</Heading>
+                </>
+              )}
+              
             </Box>
             <HStack w="100%">
               <Input bg="white" color="black" placeholder='Search for any movie or tv show' onChange={(e) => setSearchTerm(e.target.value)}/>
-              <Button onClick={performOperations} colorScheme='teal' size='sm'>
+              <Button onClick={performOperations} bg='yellow.300' color="blue.700" size='md'>
                 Search
               </Button>
             </HStack>
