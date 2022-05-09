@@ -21,9 +21,11 @@ const Movie = () => {
     window.scrollTo(0, 0);
   }
 
+
   useEffect(() => {
     performOperations()
     toTop()
+    // eslint-disable-next-line
   }, [params.searchId])
 
   return (

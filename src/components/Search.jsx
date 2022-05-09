@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { Box, Container, VStack, HStack, Heading, Input, Button, Text } from '@chakra-ui/react'
+import { Box, Container, VStack, HStack, Heading, Input, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 
 const Search = ({searched}) => {
   const [searchTerm, setSearchTerm] = useState('')
+  // eslint-disable-next-line
   const [inputErrors, setInputErrors] = useState(null)
 
   const navigate = useNavigate()

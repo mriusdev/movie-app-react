@@ -1,4 +1,4 @@
-import { Box, VStack, Image, Text, Heading, Flex } from '@chakra-ui/react'
+import { Box, VStack, Image, Text, Heading } from '@chakra-ui/react'
 
 const MovieCard = ({imageSrc, title, releaseDate}) => {
   return (

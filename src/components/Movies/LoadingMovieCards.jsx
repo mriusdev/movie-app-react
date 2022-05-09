@@ -1,4 +1,4 @@
-import { Skeleton, SimpleGrid, SkeletonText, Heading, Text, Image, Box, Flex, HStack } from '@chakra-ui/react'
+import { Skeleton, SimpleGrid, SkeletonText, Box } from '@chakra-ui/react'
 
 const LoadingMovieCards = () => {
 

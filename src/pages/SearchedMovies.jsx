@@ -29,6 +29,7 @@ const SearchedMovies = () => {
 	useEffect(() => {
     performOperations()
     toTop()
+    // eslint-disable-next-line
   }, [params.searchTerm])
 
   return (

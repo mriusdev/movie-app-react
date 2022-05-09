@@ -1,4 +1,4 @@
-import { Skeleton, SkeletonCircle, SkeletonText, Heading, Text, Image, Box, Flex, HStack } from '@chakra-ui/react'
+import { Skeleton, SkeletonCircle, SkeletonText, Box, Flex, HStack } from '@chakra-ui/react'
 
 const LoadingSingleMovie = () => {
   return (
