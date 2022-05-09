@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Heading } from '@chakra-ui/react'
+import { Container, SimpleGrid, Heading, Text, VStack } from '@chakra-ui/react'
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
@@ -77,6 +77,7 @@ const SearchedMovies = () => {
   // ]
   const params = useParams()
   const [currentData, setData] = useState(null)
+  const [error, setError] = useState(null)
 
 
   useEffect(() => {
@@ -88,9 +89,11 @@ const SearchedMovies = () => {
 
   const performOperations = () => {
 		setData(null)
+		setError(null)
     axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${params.searchTerm}`)
     .then(res => {
-      setData(res.data.Search)
+			console.log(res);
+			res.data.Error ? setError(res.data.Error) : setData(res.data.Search)
     })
   }
 
@@ -104,7 +107,7 @@ const SearchedMovies = () => {
           Search results for '{params.searchTerm}'
         </Heading>
         <SimpleGrid minChildWidth='150px' spacing='40px'>
-            { currentData ? currentData.map((movie, index) => {
+            { currentData && error === null ? currentData.map((movie, index) => {
                 return (
                   <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
                     <MovieCard
@@ -115,7 +118,18 @@ const SearchedMovies = () => {
                   </Link>
                 )
               })
-							: (
+							: !currentData && error ? (
+								<>
+									<VStack height="50vh" alignItems="center" justify="center" id="searchedMoviesError">
+										<Heading color="red.600" size="lg" py={2}>
+										Error
+										</Heading>
+										<Text>
+											{error}
+										</Text>
+									</VStack>
+								</>
+						) : (
 							<LoadingMovieCards />
 						)}
         </SimpleGrid>

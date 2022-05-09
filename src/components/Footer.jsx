@@ -9,6 +9,7 @@ const Footer = () => {
         mt="150px"
         py="100px"
         bg="yellow.300"
+        id="footer"
       >
         <VStack>
           <Heading color="blue.700" size='xl'>

@@ -17,6 +17,7 @@ const Search = ({searched}) => {
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
           backgroundImage="url('https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/hPea3Qy5Gd6z4kJLUruBbwAH8Rm.jpg')"
+          id="search"
       >
         <Container
           maxW="5xl"

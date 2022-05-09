@@ -6,7 +6,7 @@ import './header.css'
 const Header = () => {
   return (
     <>
-      <div className="navSticky">
+      <div className="navSticky" id="nav">
         <Box bg="yellow.300">
           <Container maxW="7xl" py={2}>
             <HStack color="blue.700" justify="space-between">

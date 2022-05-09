@@ -6,7 +6,7 @@ const LoadingMovieCards = () => {
 
   return (
     <>
-      <SimpleGrid minChildWidth='150px' spacing='40px'>
+      <SimpleGrid minChildWidth='150px' spacing='40px' id="loadingMovieCards">
         { placeholders.map((item, index) => {
           return (
             <Box key={index} width="150px">
