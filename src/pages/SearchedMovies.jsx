@@ -10,21 +10,25 @@ import LoadingMovieCards from '../components/Movies/LoadingMovieCards';
 
 const SearchedMovies = () => {
   const params = useParams()
-  const [currentData, setData] = useState(null)
+  const [currentData, setCurrentData] = useState(null)
   const [error, setError] = useState(null)
 
   const performOperations = () => {
-		setData(null)
+		setCurrentData(null)
 		setError(null)
-    axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${params.searchTerm}`)
+    axios.get(`/.netlify/functions/get-movie-list?search=${params.searchTerm}`)
     .then(res => {
-			console.log(res);
-			res.data.Error ? setError(res.data.Error) : setData(res.data.Search)
+			res.data.Error ? setError(res.data.Error) : setCurrentData(res.data.Search)
     })
+  }
+
+  const toTop = () => {
+    window.scrollTo(0, 0);
   }
 
 	useEffect(() => {
     performOperations()
+    toTop()
   }, [params.searchTerm])
 
   return (

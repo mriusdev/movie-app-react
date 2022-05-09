@@ -1,4 +1,4 @@
-import { Container, Heading, Text, Image, Box, Flex, HStack } from '@chakra-ui/react'
+import { Heading, Text, Image, Box, Flex, HStack } from '@chakra-ui/react'
 
 const SingleMovie = ({data}) => {
   return (
@@ -12,7 +12,7 @@ const SingleMovie = ({data}) => {
       >
         <Image
           objectFit='cover'
-          objectPosition={{ base: 'left top', md: 'center center'}}
+          objectPosition="center center"
           height={{ base: '20ch', md: '450px' }}
           width={{ base: '100%', md: '300px'}}
           borderRadius={10}

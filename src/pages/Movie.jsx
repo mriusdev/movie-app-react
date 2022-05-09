@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Container, Heading, Text, Image, Box, Flex, HStack } from '@chakra-ui/react'
+import { Container,Box, Flex } from '@chakra-ui/react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
@@ -8,21 +8,23 @@ import LoadingSingleMovie from '../components/Movie/LoadingSingleMovie';
 
 const Movie = () => {
   const params = useParams()
-  // placeholder data. This needs to get converted to redux code
   const [data, setData] = useState(null)
 
-  useEffect(() => {
-    performOperations()
-  }, [params.searchId])
-
-
   const performOperations = () => {
-    axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${params.searchId}`)
+    axios.get(`/.netlify/functions/get-single-movie?id=${params.searchId}`)
     .then(res => {
-      console.log(res);
       setData(res.data)
     })
   }
+
+  const toTop = () => {
+    window.scrollTo(0, 0);
+  }
+
+  useEffect(() => {
+    performOperations()
+    toTop()
+  }, [params.searchId])
 
   return (
     <>

@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { Box, Container, VStack, HStack, Heading, Input, Button } from '@chakra-ui/react'
+import { Box, Container, VStack, HStack, Heading, Input, Button, Text } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 
 const Search = ({searched}) => {
   const [searchTerm, setSearchTerm] = useState('')
+  const [inputErrors, setInputErrors] = useState(null)
 
   const navigate = useNavigate()
 
   const performOperations = () => {
-    navigate(`/search/${searchTerm}`)
+    searchTerm !== '' ? navigate(`/search/${searchTerm}`) : setInputErrors(true)
   }
 
   return (
@@ -40,11 +41,10 @@ const Search = ({searched}) => {
                   <Heading size='lg'>Millions of movies, TV shows and people to discover. Explore now.</Heading>
                 </>
               )}
-              
             </Box>
             <HStack w="100%">
               <Input bg="white" color="black" placeholder='Search for any movie or tv show' onChange={(e) => setSearchTerm(e.target.value)}/>
-              <Button onClick={performOperations} bg='yellow.300' color="blue.700" size='md'>
+              <Button isDisabled={searchTerm === '' && true} onClick={performOperations} bg='yellow.300' color="blue.700" size='md'>
                 Search
               </Button>
             </HStack>

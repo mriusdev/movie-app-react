@@ -1,5 +1,6 @@
 import { Container, SimpleGrid, Heading } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
@@ -49,6 +50,14 @@ const Home = () => {
 			Poster: "https://m.media-amazon.com/images/M/MV5BMTkzNjEzMDEzMF5BMl5BanBnXkFtZTgwMDI0MjE4MjE@._V1_SX300.jpg"
 		}
   ]
+
+  const toTop = () => {
+    window.scrollTo(0, 0);
+  }
+
+  useEffect(() => {
+    toTop()
+  }, [])
 
   return (
     <>
