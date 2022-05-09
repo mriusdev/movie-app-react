@@ -1,41 +1,53 @@
 import { Container, SimpleGrid, Heading } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
-import Footer from '../components/Footer';
 
 const Home = () => {
-  const placeholder = [
+  const placeholderData = [
     {
-      imageSrc: 'https://www.themoviedb.org/t/p/w220_and_h330_face/izIMqapegdEZj0YVDyFATPR8adh.jpg',
-      title: 'Vikings: Valhalla',
-      releaseDate: "Feb 25, 2022"
-    },
+			Title: "Moon Knight",
+			Year: "2022",
+			imdbID: "tt10234724",
+			Type: "series",
+			Poster: "https://m.media-amazon.com/images/M/MV5BNGM2ZjJmZDQtNTI5MS00ZTI0LTkyNjktM2RlYWY0YTY5MTYzXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg"
+		},
     {
-      imageSrc: 'https://www.themoviedb.org/t/p/w220_and_h330_face/izIMqapegdEZj0YVDyFATPR8adh.jpg',
-      title: 'Vikings: Valhalla',
-      releaseDate: "Feb 25, 2022"
-    },
+			Title: "The Batman",
+			Year: "2022",
+			imdbID: "tt1877830",
+			Type: "movie",
+			Poster: "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_SX300.jpg"
+		},
     {
-      imageSrc: 'https://www.themoviedb.org/t/p/w220_and_h330_face/izIMqapegdEZj0YVDyFATPR8adh.jpg',
-      title: 'Vikings: Valhalla',
-      releaseDate: "Feb 25, 2022"
-    },
+			Title: "The Walking Dead",
+			Year: "2010–2022",
+			imdbID: "tt1520211",
+			Type: "series",
+			Poster: "https://m.media-amazon.com/images/M/MV5BZmU5NTcwNjktODIwMi00ZmZkLTk4ZWUtYzVjZWQ5ZTZjN2RlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"
+		},
     {
-      imageSrc: 'https://www.themoviedb.org/t/p/w220_and_h330_face/izIMqapegdEZj0YVDyFATPR8adh.jpg',
-      title: 'Vikings: Valhalla',
-      releaseDate: "Feb 25, 2022"
-    },
+			Title: "Lucifer",
+			Year: "2016–2021",
+			imdbID: "tt4052886",
+			Type: "series",
+			Poster: "https://m.media-amazon.com/images/M/MV5BNDJjMzc4NGYtZmFmNS00YWY3LThjMzQtYzJlNGFkZGRiOWI1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"
+		},
     {
-      imageSrc: 'https://www.themoviedb.org/t/p/w220_and_h330_face/izIMqapegdEZj0YVDyFATPR8adh.jpg',
-      title: 'Vikings: Valhalla',
-      releaseDate: "Feb 25, 2022"
-    },
+			Title: "Halo",
+			Year: "2022–",
+			imdbID: "tt2934286",
+			Type: "series",
+			Poster: "https://m.media-amazon.com/images/M/MV5BYzhlOTkzZDMtNDYxYS00NTY2LWJjZDEtNjI3NmE3MTI2NGU2XkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"
+		},
     {
-      imageSrc: 'https://www.themoviedb.org/t/p/w220_and_h330_face/izIMqapegdEZj0YVDyFATPR8adh.jpg',
-      title: 'Vikings: Valhalla',
-      releaseDate: "Feb 25, 2022"
-    },
+			Title: "Peaky Blinders",
+			Year: "2013–2022",
+			imdbID: "tt2442560",
+			Type: "series",
+			Poster: "https://m.media-amazon.com/images/M/MV5BMTkzNjEzMDEzMF5BMl5BanBnXkFtZTgwMDI0MjE4MjE@._V1_SX300.jpg"
+		}
   ]
 
   return (
@@ -47,14 +59,15 @@ const Home = () => {
         </Heading>
         <SimpleGrid minChildWidth='150px' spacing='40px'>
           {
-            placeholder.map((movie, index) => {
+            placeholderData.map(movie => {
               return (
-                <MovieCard
-                  key={index}
-                  imageSrc={movie.imageSrc}
-                  title={movie.title}
-                  releaseDate={movie.releaseDate}
-                />
+                <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
+                  <MovieCard
+                    imageSrc={movie.Poster}
+                    title={movie.Title}
+                    releaseDate={movie.Year}
+                  />
+                </Link>
               )
             })
           }

@@ -27,7 +27,7 @@ const Movie = () => {
   return (
     <>
       <Flex align="center" height="100vh">
-        <Box py="35px" bg="yellow.300" width="100%">
+        <Box py="35px" width="100%">
           <Container
             maxWidth="5xl"
           >
