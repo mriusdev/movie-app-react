@@ -1,9 +1,9 @@
-import { Container, Heading, Text, Flex, VStack, Box } from '@chakra-ui/react'
+import { Container, Heading, Text, Flex, VStack, Box, Link } from '@chakra-ui/react'
 
 const About = () => {
   return (
     <>
-      <Flex align="center" height={{base: '70vh', md: '60vh'}}>
+      <Flex align="center">
         <Container maxWidth="4xl">
           <VStack align="flex-start" spacing="0" rowGap="1ch">
             <Heading>
@@ -11,10 +11,13 @@ const About = () => {
             </Heading>
             <Box>
               <Text>
-                This project was made with React, React router and Chakra UI
+                This is an educational project that was made with React, React router and Chakra UI
               </Text>
-              <Text mt="1ch">
-                It consumes the movie database API from https://www.omdbapi.com/
+              <Heading mt="1ch" size="md">
+                API
+              </Heading>
+              <Text>
+                It consumes the movie database API from <Link href='https://www.omdbapi.com/' color='blue.700' fontWeight="bold">omdbapi</Link>
               </Text>
             </Box>
           </VStack>
