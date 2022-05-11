@@ -3,9 +3,9 @@ import { Container, Heading, Text, Flex, VStack, Box, Link } from '@chakra-ui/re
 const About = () => {
   return (
     <>
-      <Flex align="center">
+      <Flex align="center" height="100vh">
         <Container maxWidth="4xl">
-          <VStack align="flex-start" spacing="0" rowGap="1ch">
+          <VStack align="flex-start" justify="center" spacing="0" rowGap="1ch">
             <Heading>
               About
             </Heading>

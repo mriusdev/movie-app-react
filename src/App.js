@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Flex direction="column" justify="space-between" height="100vh">
+        <Flex direction="column" height="100vh" spacing="0">
           <Header />
           <Routes>
             <Route path="/" element={<Home />}/>

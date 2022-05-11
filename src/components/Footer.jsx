@@ -9,10 +9,10 @@ const Footer = () => {
       <Flex
         alignItems='center'
         justify="center"
-        mt="10ch"
         py="4ch"
         bg="yellow.300"
         id="footer"
+        mt="auto"
       >
         <Flex direction="column" align="center">
           <FontAwesomeIcon icon={faClapperboard} fontSize="3ch" color="#2C5282"/>

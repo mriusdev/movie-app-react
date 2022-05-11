@@ -62,7 +62,7 @@ const Home = () => {
   return (
     <>
       <Search />
-      <Container maxW="5xl" py={2} id="featured">
+      <Container mb="10ch" maxW="5xl" py={2} id="featured">
         <Heading size="lg" py={4}>
           What's popular
         </Heading>

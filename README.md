@@ -14,9 +14,14 @@ Built with [Create-React-App](https://create-react-app.dev/), [Cypress](https://
 <br />
 
 ## 🖥 The Look
-A short video of how the site functions
+Desktop view
 
-https://user-images.githubusercontent.com/93098512/163397799-d9140126-2c92-4b83-aacf-4aa8711fc9c3.mp4
+https://user-images.githubusercontent.com/93098512/167622884-f21e0be0-3e7d-4c37-a66e-e14c53228db4.mp4
+
+Mobile view
+
+https://user-images.githubusercontent.com/93098512/167623227-b09517f6-ed27-4605-ba97-6cce5ba2bf71.mov
+
 
 <br />
 
@@ -77,6 +82,8 @@ npm test
 ```
 
 3. Click on 'Run 3 integration specs' or run them separately
+![image](https://user-images.githubusercontent.com/93098512/167622281-83b57d97-dfa2-4610-aed6-343be77d4fb7.png)
+Note: I set the port to 8888 because I was serving the website locally using "netlify dev", ignore it
 
 <br />
 
