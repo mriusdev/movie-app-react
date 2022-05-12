@@ -1,6 +1,7 @@
 import { Container, SimpleGrid, Heading } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion'
 
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
@@ -51,6 +52,10 @@ const Home = () => {
 		}
   ]
 
+  // const ChakraBox = chakra(motion.div, {
+  //   shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children'
+  // });
+
   const toTop = () => {
     window.scrollTo(0, 0);
   }
@@ -61,27 +66,38 @@ const Home = () => {
 
   return (
     <>
-      <Search />
-      <Container mb="10ch" maxW="5xl" py={2} id="featured">
-        <Heading size="lg" py={4}>
-          What's popular
-        </Heading>
-        <SimpleGrid minChildWidth='150px' spacing='40px'>
-          {
-            placeholderData.map(movie => {
-              return (
-                <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
-                  <MovieCard
-                    imageSrc={movie.Poster}
-                    title={movie.Title}
-                    releaseDate={movie.Year}
-                  />
-                </Link>
-              )
-            })
-          }
-        </SimpleGrid>
-      </Container>
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      >
+        <Search />
+        <Container
+          mb="10ch"
+          maxW="5xl"
+          py={2}
+          id="featured"
+        >
+          <Heading size="lg" py={4}>
+            What's popular
+          </Heading>
+          <SimpleGrid minChildWidth='150px' spacing='40px'>
+            {
+              placeholderData.map(movie => {
+                return (
+                  <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
+                    <MovieCard
+                      imageSrc={movie.Poster}
+                      title={movie.Title}
+                      releaseDate={movie.Year}
+                    />
+                  </Link>
+                )
+              })
+            }
+          </SimpleGrid>
+        </Container>
+      </motion.div>
     </>
   )
 }

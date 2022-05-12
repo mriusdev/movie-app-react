@@ -1,9 +1,17 @@
 import { Container, Heading, Text, Flex, VStack, Box, Link } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 
 const About = () => {
   return (
     <>
-      <Flex align="center" height="100vh">
+      <Flex
+        as={motion.div}
+        align="center"
+        height="100vh"
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      >
         <Container maxWidth="4xl">
           <VStack align="flex-start" justify="center" spacing="0" rowGap="1ch">
             <Heading>

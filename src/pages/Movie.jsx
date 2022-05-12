@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Container,Box, Flex } from '@chakra-ui/react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion';
 
 import SingleMovie from '../components/Movie/SingleMovie';
 import LoadingSingleMovie from '../components/Movie/LoadingSingleMovie';
@@ -30,7 +31,14 @@ const Movie = () => {
 
   return (
     <>
-      <Flex align="center" height="100vh">
+      <Flex
+        as={motion.div}
+        align="center"
+        height="100vh"
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      >
         <Box py="35px" width="100%">
           <Container
             maxWidth="5xl"

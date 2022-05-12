@@ -2,6 +2,8 @@ import { Container, SimpleGrid, Heading, Text, VStack } from '@chakra-ui/react'
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'
+
 
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
@@ -34,14 +36,19 @@ const SearchedMovies = () => {
 
   return (
     <>
-      <Search
-				searched={true}
-			/>
-      <Container maxW="5xl" py={2}>
-        <Heading size="lg" py={4}>
-          Search results for '{params.searchTerm}'
-        </Heading>
-        <SimpleGrid minChildWidth='150px' spacing='40px'>
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      >
+        <Search
+          searched={true}
+        />
+        <Container maxW="5xl" py={2}>
+          <Heading size="lg" py={4}>
+            Search results for '{params.searchTerm}'
+          </Heading>
+          <SimpleGrid minChildWidth='150px' spacing='40px'>
             { currentData && error === null ? currentData.map(movie => {
                 return (
                   <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
@@ -53,22 +60,24 @@ const SearchedMovies = () => {
                   </Link>
                 )
               })
-							: !currentData && error ? (
-								<>
-									<VStack height="50vh" alignItems="center" justify="center" id="searchedMoviesError">
-										<Heading color="red.600" size="lg" py={2}>
-										Error
-										</Heading>
-										<Text>
-											{error}
-										</Text>
-									</VStack>
-								</>
-						) : (
-							<LoadingMovieCards />
-						)}
-        </SimpleGrid>
-      </Container>
+              : !currentData && error ? (
+                <>
+                  <VStack height="50vh" alignItems="center" justify="center" id="searchedMoviesError">
+                    <Heading color="red.600" size="lg" py={2}>
+                    Error
+                    </Heading>
+                    <Text>
+                      {error}
+                    </Text>
+                  </VStack>
+                </>
+            ) : (
+              <LoadingMovieCards />
+            )}
+          </SimpleGrid>
+        </Container>
+      </motion.div>
+      
     </>
   )
 }

@@ -16,11 +16,11 @@ Built with [Create-React-App](https://create-react-app.dev/), [Cypress](https://
 ## 🖥 The Look
 Desktop view
 
-https://user-images.githubusercontent.com/93098512/167622884-f21e0be0-3e7d-4c37-a66e-e14c53228db4.mp4
+https://user-images.githubusercontent.com/93098512/168047143-750b54e6-7864-4347-9c39-86f5e5f0d3f3.mp4
 
 Mobile view
 
-https://user-images.githubusercontent.com/93098512/167623227-b09517f6-ed27-4605-ba97-6cce5ba2bf71.mov
+https://user-images.githubusercontent.com/93098512/168047559-f0bf051f-6f61-423d-9fde-c504ba5ff250.mp4
 
 
 <br />
