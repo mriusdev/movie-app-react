@@ -4,13 +4,15 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion'
 
-
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
 import LoadingMovieCards from '../components/Movies/LoadingMovieCards';
+import { PTransitionsFade } from '../components/PageAnimations/PageTransitions'
 
 
 const SearchedMovies = () => {
+  const { initialFade, animateFade, exitFade} = PTransitionsFade
+
   const params = useParams()
   const [currentData, setCurrentData] = useState(null)
   const [error, setError] = useState(null)
@@ -37,9 +39,9 @@ const SearchedMovies = () => {
   return (
     <>
       <motion.div
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{opacity: 0}}
+        initial={initialFade}
+        animate={animateFade}
+        exit={exitFade}
       >
         <Search
           searched={true}

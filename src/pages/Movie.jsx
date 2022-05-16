@@ -6,8 +6,11 @@ import { motion } from 'framer-motion';
 
 import SingleMovie from '../components/Movie/SingleMovie';
 import LoadingSingleMovie from '../components/Movie/LoadingSingleMovie';
+import { PTransitionsFade } from '../components/PageAnimations/PageTransitions'
 
 const Movie = () => {
+  const { initialFade, animateFade, exitFade} = PTransitionsFade
+
   const params = useParams()
   const [data, setData] = useState(null)
 
@@ -35,9 +38,9 @@ const Movie = () => {
         as={motion.div}
         align="center"
         height="100vh"
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{opacity: 0}}
+        initial={initialFade}
+        animate={animateFade}
+        exit={exitFade}
       >
         <Box py="35px" width="100%">
           <Container

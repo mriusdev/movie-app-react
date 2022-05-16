@@ -1,16 +1,19 @@
 import { Container, Heading, Text, Flex, VStack, Box, Link } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
+import { PTransitionsFade } from '../components/PageAnimations/PageTransitions'
+
 const About = () => {
+  const { initialFade, animateFade, exitFade} = PTransitionsFade
   return (
     <>
       <Flex
         as={motion.div}
         align="center"
         height="100vh"
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{opacity: 0}}
+        initial={initialFade}
+        animate={animateFade}
+        exit={exitFade}
       >
         <Container maxWidth="4xl">
           <VStack align="flex-start" justify="center" spacing="0" rowGap="1ch">

@@ -6,7 +6,11 @@ import { motion } from 'framer-motion'
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
 
+import { PTransitionsFade } from '../components/PageAnimations/PageTransitions'
+
 const Home = () => {
+  const { initialFade, animateFade, exitFade} = PTransitionsFade
+
   const placeholderData = [
     {
 			Title: "Moon Knight",
@@ -52,10 +56,6 @@ const Home = () => {
 		}
   ]
 
-  // const ChakraBox = chakra(motion.div, {
-  //   shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children'
-  // });
-
   const toTop = () => {
     window.scrollTo(0, 0);
   }
@@ -67,9 +67,9 @@ const Home = () => {
   return (
     <>
       <motion.div
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{opacity: 0}}
+        initial={initialFade}
+        animate={animateFade}
+        exit={exitFade}
       >
         <Search />
         <Container
