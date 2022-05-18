@@ -1,18 +1,20 @@
 import { useParams } from 'react-router-dom';
 import { Container,Box, Flex } from '@chakra-ui/react'
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FC } from 'react'
 import { motion } from 'framer-motion';
 
 import SingleMovie from '../components/Movie/SingleMovie';
 import LoadingSingleMovie from '../components/Movie/LoadingSingleMovie';
+import { IMovie } from '../ts/interfaces/movie_interfaces'
+
 import { PTransitionsFade } from '../components/PageAnimations/PageTransitions'
 
-const Movie = () => {
+const Movie:FC = () => {
   const { initialFade, animateFade, exitFade} = PTransitionsFade
 
   const params = useParams()
-  const [data, setData] = useState(null)
+  const [data, setData] = useState<null | IMovie>(null)
 
   const performOperations = () => {
     axios.get(`/.netlify/functions/get-single-movie?id=${params.searchId}`)

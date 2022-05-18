@@ -2,12 +2,12 @@ import { Skeleton, SimpleGrid, SkeletonText, Box } from '@chakra-ui/react'
 
 const LoadingMovieCards = () => {
 
-  const placeholders = [1,2,3,4,5,6,7]
+  const placeholders: number[] = [1,2,3,4,5,6,7]
 
   return (
     <>
       <SimpleGrid minChildWidth='150px' spacing='40px' id="loadingMovieCards">
-        { placeholders.map((item, index) => {
+        { placeholders.map((item: number, index: number) => {
           return (
             <Box key={index} width="150px">
               <Skeleton height="240px" borderRadius={10} />
