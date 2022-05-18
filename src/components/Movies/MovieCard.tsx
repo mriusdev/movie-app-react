@@ -1,6 +1,13 @@
 import { Box, VStack, Image, Text, Heading } from '@chakra-ui/react'
+import { FC } from 'react'
 
-const MovieCard = ({imageSrc, title, releaseDate}) => {
+interface Props {
+  imageSrc: string,
+  title: string,
+  releaseDate: string
+}
+
+const MovieCard:FC<Props> = ({imageSrc, title, releaseDate}) => {
   return (
     <>
       <Box maxWidth={40} height="auto" overflow="hidden" borderRadius={10}>

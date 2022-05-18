@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { useState, FC, ChangeEvent } from 'react'
 import { Box, Container, VStack, HStack, Heading, Input, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 
-const Search = ({searched}) => {
-  const [searchTerm, setSearchTerm] = useState('')
+interface Props {
+  searched?: boolean
+}
+
+const Search:FC<Props> = ({searched}) => {
+  const [searchTerm, setSearchTerm] = useState<string>('')
   // eslint-disable-next-line
-  const [inputErrors, setInputErrors] = useState(null)
+  const [inputErrors, setInputErrors] = useState<null | boolean>(null)
 
   const navigate = useNavigate()
 
@@ -44,7 +48,7 @@ const Search = ({searched}) => {
               )}
             </Box>
             <HStack w="100%">
-              <Input bg="white" color="black" placeholder='Search for any movie or tv show' onChange={(e) => setSearchTerm(e.target.value)}/>
+              <Input bg="white" color="black" placeholder='Search for any movie or tv show' onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}/>
               <Button isDisabled={searchTerm === '' && true} onClick={performOperations} bg='yellow.300' color="blue.700" size='md'>
                 Search
               </Button>

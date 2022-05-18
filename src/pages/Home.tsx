@@ -5,13 +5,14 @@ import { motion } from 'framer-motion'
 
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
+import { IMovies } from '../ts/interfaces/movies_interfaces'
 
 import { PTransitionsFade } from '../components/PageAnimations/PageTransitions'
 
 const Home = () => {
   const { initialFade, animateFade, exitFade} = PTransitionsFade
 
-  const placeholderData = [
+  const placeholderData: IMovies[] = [
     {
 			Title: "Moon Knight",
 			Year: "2022",
@@ -53,7 +54,7 @@ const Home = () => {
 			imdbID: "tt2442560",
 			Type: "series",
 			Poster: "https://m.media-amazon.com/images/M/MV5BMTkzNjEzMDEzMF5BMl5BanBnXkFtZTgwMDI0MjE4MjE@._V1_SX300.jpg"
-		}
+		},
   ]
 
   const toTop = () => {
@@ -83,7 +84,7 @@ const Home = () => {
           </Heading>
           <SimpleGrid minChildWidth='150px' spacing='40px'>
             {
-              placeholderData.map(movie => {
+              placeholderData.map((movie: IMovies) => {
                 return (
                   <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
                     <MovieCard

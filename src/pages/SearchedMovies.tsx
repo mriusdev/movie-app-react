@@ -1,21 +1,23 @@
 import { Container, SimpleGrid, Heading, Text, VStack } from '@chakra-ui/react'
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { motion } from 'framer-motion'
 
 import Search from "../components/Search";
 import MovieCard from "../components/Movies/MovieCard";
 import LoadingMovieCards from '../components/Movies/LoadingMovieCards';
+import { IMovies } from '../ts/interfaces/movies_interfaces'
+
 import { PTransitionsFade } from '../components/PageAnimations/PageTransitions'
 
 
-const SearchedMovies = () => {
+const SearchedMovies:FC = () => {
   const { initialFade, animateFade, exitFade} = PTransitionsFade
 
   const params = useParams()
-  const [currentData, setCurrentData] = useState(null)
-  const [error, setError] = useState(null)
+  const [currentData, setCurrentData] = useState<null | IMovies[]>(null)
+  const [error, setError] = useState<string | null>(null)
 
   const performOperations = () => {
 		setCurrentData(null)
@@ -51,7 +53,7 @@ const SearchedMovies = () => {
             Search results for '{params.searchTerm}'
           </Heading>
           <SimpleGrid minChildWidth='150px' spacing='40px'>
-            { currentData && error === null ? currentData.map(movie => {
+            { currentData && error === null ? currentData.map((movie: IMovies) => {
                 return (
                   <Link key={movie.imdbID} to={`/movie/${movie.imdbID}`}>
                     <MovieCard

@@ -1,6 +1,13 @@
 import { Heading, Text, Image, Box, Flex, HStack } from '@chakra-ui/react'
+import { FC } from 'react'
 
-const SingleMovie = ({data}) => {
+import { IMovie } from '../../ts/interfaces/movie_interfaces'
+
+interface Props {
+  data: IMovie
+}
+
+const SingleMovie:FC<Props> = ({data}) => {
   return (
     <>
       <Flex

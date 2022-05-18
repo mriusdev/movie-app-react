@@ -2,13 +2,14 @@
 Languages and tools
 <br />
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&style=flat)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white&style=flat)
 ![Cypress](https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white&style=flat)
 ![React-router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white&style=flat)
 ![Chakra-UI](https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white&style=flat)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white&style=flat)
 ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=00C7B7&style=flat)
 
-Built with [Create-React-App](https://create-react-app.dev/), [Cypress](https://www.cypress.io/), [React-router](https://reactrouter.com/), [OMDb API](https://www.omdbapi.com/) and [Chakra UI](https://chakra-ui.com/) and hosted on [Netlify](https://www.netlify.com/)
+Built with [Create-React-App](https://create-react-app.dev/), [TypeScript](https://www.typescriptlang.org/), [Cypress](https://www.cypress.io/), [React-router](https://reactrouter.com/), [OMDb API](https://www.omdbapi.com/) and [Chakra UI](https://chakra-ui.com/) and hosted on [Netlify](https://www.netlify.com/)
 
 <b>[See Live Site](https://stunning-shortbread-265257.netlify.app/) </b>
 <br />

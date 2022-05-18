@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Router>
-        <Flex direction="column" height="100vh" spacing="0">
+        <Flex direction="column" height="100vh">
           <Header />
           <AnimatedRoutes />
           <Footer />
